@@ -5,6 +5,7 @@ import {
   Card,
   CardContent,
   Input,
+  InputLabel,
   Typography,
 } from "@mui/material";
 import cssLayoutStyles from "../../Global/Styles/layout";
@@ -61,31 +62,33 @@ interface FormDataType {
   histogramTendency: string;
 }
 
+const initialFormData: FormDataType = {
+  baselineValue: "",
+  accelerations: "",
+  fetalMovement: "",
+  uterineContractions: "",
+  lightDecelerations: "",
+  severeDecelerations: "",
+  prolonguedDecelerations: "",
+  abnormalShortTermVariability: "",
+  meanValueOfShortTermVariability: "",
+  percentageOfTimeWithAbnormalLongTermVariability: "",
+  meanValueOfLongTermVariability: "",
+  histogramWidth: "",
+  histogramMin: "",
+  histogramMax: "",
+  histogramNumberOfPeaks: "",
+  histogramNumberOfZeroes: "",
+  histogramMode: "",
+  histogramMean: "",
+  histogramMedian: "",
+  histogramVariance: "",
+  histogramTendency: "",
+};
+
 const AnalyzePage = () => {
   const theme = useTheme();
-  const [formData, setFormData] = useState<FormDataType>({
-    baselineValue: "",
-    accelerations: "",
-    fetalMovement: "",
-    uterineContractions: "",
-    lightDecelerations: "",
-    severeDecelerations: "",
-    prolonguedDecelerations: "",
-    abnormalShortTermVariability: "",
-    meanValueOfShortTermVariability: "",
-    percentageOfTimeWithAbnormalLongTermVariability: "",
-    meanValueOfLongTermVariability: "",
-    histogramWidth: "",
-    histogramMin: "",
-    histogramMax: "",
-    histogramNumberOfPeaks: "",
-    histogramNumberOfZeroes: "",
-    histogramMode: "",
-    histogramMean: "",
-    histogramMedian: "",
-    histogramVariance: "",
-    histogramTendency: "",
-  });
+  const [formData, setFormData] = useState<FormDataType>(initialFormData);
   const styles = {
     ...cssStyles(),
     ...cssSpacingStyles(theme),
@@ -100,8 +103,8 @@ const AnalyzePage = () => {
       const wb = XLSX.read(bstr, { type: "binary" });
       const wsname = wb.SheetNames[0];
       const ws = wb.Sheets[wsname];
-      const data = XLSX.utils.sheet_to_json(ws, { header: 1 });
-      const firstRow = data.slice(1)[0];
+      const data: Array<number[]> = XLSX.utils.sheet_to_json(ws, { header: 1 });
+      const firstRow: number[] = data.slice(1)[0];
       const newData = {
         baselineValue: firstRow[0]?.toString() || "",
         accelerations: firstRow[1]?.toString() || "",
@@ -153,263 +156,352 @@ const AnalyzePage = () => {
             accept=".xlsx, .xls, .csv"
           />
         </Button>
-        <Card>
-          <CardContent>
-            <Card sx={{ marginBottom: 2, boxShadow: "1px 1px 1px grey" }}>
-              <CardContent>
-                <Box
-                  css={[styles.dataContainer, styles.fullMargin1]}
-                  sx={{ gap: "15%" }}
-                >
-                  <Input
-                    type="number"
-                    placeholder="Baseline value"
-                    value={formData.baselineValue}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        baselineValue: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Accelerations"
-                    value={formData.accelerations}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        accelerations: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Fetal movement"
-                    value={formData.fetalMovement}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        fetalMovement: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Uterine contractions"
-                    value={formData.uterineContractions}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        uterineContractions: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Light decelerations"
-                    value={formData.lightDecelerations}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        lightDecelerations: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Severe decelerations"
-                    value={formData.severeDecelerations}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        severeDecelerations: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Prolonged decelerations"
-                    value={formData.prolonguedDecelerations}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        prolonguedDecelerations: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Abnormal short term variablity"
-                    value={formData.abnormalShortTermVariability}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        abnormalShortTermVariability: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Mean value of short term variablity"
-                    value={formData.meanValueOfShortTermVariability}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        meanValueOfShortTermVariability: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Percentage of time with abnormal short term variability"
-                    value={
-                      formData.percentageOfTimeWithAbnormalLongTermVariability ||
-                      ""
-                    }
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        percentageOfTimeWithAbnormalLongTermVariability:
-                          e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Mean value of long term variablity"
-                    value={formData.meanValueOfLongTermVariability}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        meanValueOfLongTermVariability: e.target.value,
-                      })
-                    }
-                  />
-                </Box>
-              </CardContent>
-            </Card>
-            <Card sx={{ boxShadow: "1px 1px 1px grey" }}>
-              <CardContent css={styles.topBottomMargin2}>
-                <Typography variant="h2">Histogram Data</Typography>
-                <Box css={styles.dataContainer} sx={{ gap: "15%" }}>
-                  <Input
-                    type="number"
-                    placeholder="Width"
-                    value={formData.histogramWidth}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        histogramWidth: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Min value"
-                    value={formData.histogramMin}
-                    onChange={(e) =>
-                      setFormData({ ...formData, histogramMin: e.target.value })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Max value"
-                    value={formData.histogramMax}
-                    onChange={(e) =>
-                      setFormData({ ...formData, histogramMax: e.target.value })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Number of peaks"
-                    value={formData.histogramNumberOfPeaks}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        histogramNumberOfPeaks: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Number of zeros"
-                    value={formData.histogramNumberOfZeroes}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        histogramNumberOfZeroes: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Mode"
-                    value={formData.histogramMode}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        histogramMode: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Mean"
-                    value={formData.histogramMean}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        histogramMean: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Median"
-                    value={formData.histogramMedian}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        histogramMedian: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Variance"
-                    value={formData.histogramVariance}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        histogramVariance: e.target.value,
-                      })
-                    }
-                  />
-                  <Input
-                    type="number"
-                    placeholder="Tendency"
-                    value={formData.histogramTendency}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        histogramTendency: e.target.value,
-                      })
-                    }
-                  />
-                </Box>
-              </CardContent>
-            </Card>
-          </CardContent>
-        </Card>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <Button variant="contained">Continue</Button>
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <Card sx={{ width: "70%" }}>
+            <CardContent>
+              <Card sx={{ marginBottom: 2, boxShadow: "1px 1px 1px grey" }}>
+                <CardContent>
+                  <Box css={[styles.dataContainer, styles.fullMargin1]}>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Baseline value
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.baselineValue}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            baselineValue: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Acceleration
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.accelerations}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            accelerations: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Fetal movement
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.fetalMovement}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            fetalMovement: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Uterine contractions
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.uterineContractions}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            uterineContractions: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Light decelerations
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.lightDecelerations}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            lightDecelerations: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Severe decelerations
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.severeDecelerations}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            severeDecelerations: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Prolongued decelerations
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.prolonguedDecelerations}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            prolonguedDecelerations: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Abnormal ST variability
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.abnormalShortTermVariability}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            abnormalShortTermVariability: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Mean value of ST variability
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.meanValueOfShortTermVariability}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            meanValueOfShortTermVariability: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Percentage of time with abnormal ST variability
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={
+                          formData.percentageOfTimeWithAbnormalLongTermVariability ||
+                          ""
+                        }
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            percentageOfTimeWithAbnormalLongTermVariability:
+                              e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Mean value of LT variability
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.meanValueOfLongTermVariability}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            meanValueOfLongTermVariability: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                  </Box>
+                </CardContent>
+              </Card>
+              <Card sx={{ boxShadow: "1px 1px 1px grey" }}>
+                <CardContent css={styles.topBottomMargin2}>
+                  <Typography variant="h2">Histogram Data</Typography>
+                  <Box css={styles.dataContainer}>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>Width</InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.histogramWidth}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            histogramWidth: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Minimal value
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.histogramMin}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            histogramMin: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Maximum value
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.histogramMax}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            histogramMax: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Number of peaks
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.histogramNumberOfPeaks}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            histogramNumberOfPeaks: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Number of zeros
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.histogramNumberOfZeroes}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            histogramNumberOfZeroes: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>Mode</InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.histogramMode}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            histogramMode: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>Mean</InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.histogramMean}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            histogramMean: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>Median</InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.histogramMedian}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            histogramMedian: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Variance
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.histogramVariance}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            histogramVariance: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                    <>
+                      <InputLabel sx={{ textAlign: "end" }}>
+                        Tendency
+                      </InputLabel>
+                      <Input
+                        type="number"
+                        value={formData.histogramTendency}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            histogramTendency: e.target.value,
+                          })
+                        }
+                      />
+                    </>
+                  </Box>
+                </CardContent>
+              </Card>
+            </CardContent>
+          </Card>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginInline: "15rem",
+            padding: "20px",
+          }}
+        >
+          <Button
+            variant="contained"
+            onClick={() => setFormData(initialFormData)}
+          >
+            Clear data
+          </Button>
+          <Button variant="contained">Continue</Button>
+        </Box>
       </Box>
     </>
   );
