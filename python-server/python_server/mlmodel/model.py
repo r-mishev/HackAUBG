@@ -1,6 +1,5 @@
 # Importing Libraries
-import random
-import secrets
+import os
 
 import numpy as np
 import pandas as pd
@@ -22,7 +21,8 @@ from sklearn import metrics
 from sklearn.metrics import roc_curve, auc, roc_auc_score
 np.random.seed(0)
 
-data = pd.read_csv("fetal_health.csv")
+data = pd.read_csv("python_server/mlmodel/fetal_health.csv")
+data.head()
 
 # data.info()
 
@@ -202,5 +202,5 @@ predicted_fetal_health = RF_model.predict(X_test_actual)
 # Print the predicted fetal health
 print("Predicted Fetal Health:", predicted_fetal_health)
 
-def getCorrmat():
+def get_corrmat():
     return corrmat.to_dict('list')
