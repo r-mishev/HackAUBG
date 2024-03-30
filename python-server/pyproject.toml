@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "python-server"
+version = "0.1.0"
+description = ""
+authors = ["Maria Kirilova <mariakirilova2004@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+scikit-learn = "^1.4.1.post1"
+flask = "^3.0.2"
+matplotlib = "^3.8.3"
+seaborn = "^0.13.2"
+python-dotenv = "^1.0.1"
+flask-cors = "^4.0.0"
+
+[tool.poetry.scripts]
+start="python_server.main:start"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
