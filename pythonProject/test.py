@@ -202,3 +202,5 @@ predicted_fetal_health = RF_model.predict(X_test_actual)
 # Print the predicted fetal health
 print("Predicted Fetal Health:", predicted_fetal_health)
 
+def getCorrmat():
+    return corrmat.to_dict('list')
