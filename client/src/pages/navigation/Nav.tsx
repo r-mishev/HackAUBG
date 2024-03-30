@@ -7,14 +7,14 @@ function Nav() {
 
   return (
     <div className="navigation">
-      <a href="/">
+      <a className="nav-logo-group" href="/">
         <img
           className="nav-logo"
           src="../../../public/tiny-heart-logo.png"
         ></img>
+        <p>Tiny Heart Health</p>
       </a>
       <div className="nav-side">
-        <a onClick={() => navigate(Routes.SOLUTIONS)}>Solutions</a> |
         <a onClick={() => navigate(Routes.ANALYZE)}> Analyze</a>
       </div>
     </div>
