@@ -2,6 +2,8 @@ import { createBrowserRouter } from "react-router-dom";
 import { Routes } from "../../utils/routes";
 import AnalyzePage from "../../pages/AnalyzePage/AnalyzePage";
 import { Box, Typography } from "@mui/material";
+import AuthLayout from "../AuthLayout";
+import HomePage from "../../pages/HomePage/HomePage";
 
 export default createBrowserRouter([
   {
