@@ -1,109 +1,45 @@
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import { Routes } from "../utils/routes";
+import './login.css';
 
-const Register = () => {
+const Login = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    if(data.get("password")!=data.get("repeatPassowrd"))alert("Passwords must match")
     console.log({
       email: data.get("email"),
       password: data.get("password"),
+      repeatPassword: data.get("repeatPassword")
     });
   };
 
   return (
-    <Box
-      sx={{
-        marginTop: 8,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }}
-    >
-      <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-        <LockOutlinedIcon />
-      </Avatar>
-      <Typography component="h1" variant="h5">
-        Sign up
-      </Typography>
-      <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              autoComplete="given-name"
-              name="firstName"
-              required
-              fullWidth
-              id="firstName"
-              label="First Name"
-              autoFocus
-            />
-          </Grid>
-          <Grid item xs={12} sm={6}>
-            <TextField
-              required
-              fullWidth
-              id="lastName"
-              label="Last Name"
-              name="lastName"
-              autoComplete="family-name"
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="new-password"
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <FormControlLabel
-              control={<Checkbox value="allowExtraEmails" color="primary" />}
-              label="I want to receive inspiration, marketing promotions and updates via email."
-            />
-          </Grid>
-        </Grid>
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-        >
-          Sign Up
-        </Button>
-        <Grid container justifyContent="flex-end">
-          <Grid item>
-            <Link href={Routes.SIGN_IN} variant="body2">
-              Already have an account? Sign in
-            </Link>
-          </Grid>
-        </Grid>
-      </Box>
-    </Box>
+    <div className="container">
+    <div className="center">
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+            <div className="txt_field">
+                <input type="text" name="email" required></input>
+                <span></span>
+                <label>Email</label>
+            </div>
+            <div className="txt_field">
+                <input type="password" name="password" required></input>
+                <span></span>
+                <label>Password</label>
+            </div>
+            <div className="txt_field">
+                <input type="password" name="repeatPassword" required></input>
+                <span></span>
+                <label>Repeat Password</label>
+            </div>
+            <input name="submit" type="Submit" value="Login"></input>
+            <div className="signup_link">
+                Already have an account? <br></br><a href="/login">Sign in</a>
+            </div>
+        </form>
+    </div>
+    </div>
   );
 };
 
-export default Register;
+export default Login;

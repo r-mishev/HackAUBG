@@ -95,7 +95,7 @@ const AnalyzePage = () => {
     ...cssLayoutStyles,
   };
 
-  const handleFileUpload = (e) => {
+  const handleFileUpload = (e:any) => {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onload = (evt) => {
