@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, classification_report
 
 # Load the dataset
-data = pd.read_csv('fetal_health_dataset.csv')
+data = pd.read_csv('../fetal_health.csv')
 
 # Display the first few rows of the dataset
 print(data.head())
