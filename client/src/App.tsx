@@ -1,11 +1,9 @@
 import { Box } from "@mui/material";
 import useTheme from "@mui/material/styles/useTheme";
 import { RouterProvider } from "react-router-dom";
-import GuestLayout from "./Layout/GuestLayout";
 import appRouter from "./Layout/Router/AppRouter";
 
 const App = () => {
-  const loggedUser = true;
   const userLoading = false;
   const theme = useTheme();
 
@@ -24,15 +22,11 @@ const App = () => {
     );
   }
 
-  if (loggedUser) {
-    return (
-      <Box component="main">
-        <RouterProvider router={appRouter} />
-      </Box>
-    );
-  }
-
-  return <GuestLayout />;
+  return (
+    <Box component="main">
+      <RouterProvider router={appRouter} />
+    </Box>
+  );
 };
 
 export default App;
