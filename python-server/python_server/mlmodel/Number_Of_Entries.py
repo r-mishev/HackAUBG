@@ -21,10 +21,10 @@ from sklearn import metrics
 from sklearn.metrics import roc_curve, auc, roc_auc_score
 np.random.seed(0)
 
-data = pd.read_csv("fetal_health.csv")
-data.head()
+def number_entries():
+    data = pd.read_csv("fetal_health.csv")
+    data.head()
 
-
-#number of entries based on fetal health
-print(sns.countplot(data=data, x="fetal_health", hue="fetal_health", palette=["#f7b2b0", "#8f7198", "#003f5c"], legend=False))
-plt.show()
+    # number of entries based on fetal health
+    sns.countplot(data=data, x="fetal_health", hue="fetal_health", palette=["#f7b2b0", "#8f7198", "#003f5c"], legend=False)
+    return plt

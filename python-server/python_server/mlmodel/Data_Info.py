@@ -21,9 +21,10 @@ from sklearn import metrics
 from sklearn.metrics import roc_curve, auc, roc_auc_score
 np.random.seed(0)
 
-data = pd.read_csv("fetal_health.csv")
-data.head()
+def data_info():
+    data = pd.read_csv("fetal_health.csv")
+    data.head()
 
-data.info()
+    data.info()
 
-print(data.describe().T)
+    print(data.describe().T)

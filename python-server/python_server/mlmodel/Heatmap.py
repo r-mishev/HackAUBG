@@ -21,18 +21,19 @@ from sklearn import metrics
 from sklearn.metrics import roc_curve, auc, roc_auc_score
 np.random.seed(0)
 
-data = pd.read_csv("fetal_health.csv")
-data.head()
+def heatmap():
+    data = pd.read_csv("fetal_health.csv")
+    data.head()
 
-corrmat= data.corr()
+    corrmat = data.corr()
 
-plt.figure(figsize=(15,15))
+    plt.figure(figsize=(15, 15))
 
-cmap = sns.diverging_palette(250, 10, s=80, l=55, n=9, as_cmap=True)
+    cmap = sns.diverging_palette(250, 10, s=80, l=55, n=9, as_cmap=True)
 
-sns.heatmap(corrmat,annot=True, cmap=cmap, center=0)
+    sns.heatmap(corrmat, annot=True, cmap=cmap, center=0)
 
-plt.show()
+    # plt.show()
 
-print(type(corrmat))
-print(corrmat.to_dict('list'))
+    return corrmat.to_dict('list')
+
