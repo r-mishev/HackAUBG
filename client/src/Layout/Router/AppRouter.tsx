@@ -2,8 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import { Routes } from "../../utils/routes";
 import AnalyzePage from "../../pages/AnalyzePage/AnalyzePage";
 import { Box, Typography } from "@mui/material";
+import Home from "../../pages/home/Home";
+import Register from "../../authPages/Register";
+import Login from "../../authPages/Login";
 import AuthLayout from "../AuthLayout";
-import HomePage from "../../pages/HomePage/HomePage";
 
 export default createBrowserRouter([
   {
@@ -12,11 +14,19 @@ export default createBrowserRouter([
     children: [
       {
         path: Routes.HOME,
-        element: <HomePage />,
+        element: <Home />,
       },
       {
         path: Routes.ANALYZE,
         element: <AnalyzePage />,
+      },
+      {
+        path: Routes.SIGN_UP,
+        element: <Register />,
+      },
+      {
+        path: Routes.SIGN_IN,
+        element: <Login />,
       },
       {
         path: "/*",

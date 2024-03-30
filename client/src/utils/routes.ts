@@ -1,9 +1,10 @@
 enum Routes {
   HOME = "/",
   ANALYZE = "/analyze",
-  SIGN_UP = "/sign-up",
+  SIGN_UP = "/register",
+  SIGN_IN = "/login",
   FORGOTTEN_PASSWORD = "/forgotten-password",
-  SIGN_IN = "/sign-in",
+  SOLUTIONS = "/solutions",
 }
 
 export { Routes };

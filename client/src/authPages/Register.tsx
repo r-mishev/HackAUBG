@@ -8,6 +8,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
+import { Routes } from "../utils/routes";
 
 const Register = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -95,7 +96,7 @@ const Register = () => {
         </Button>
         <Grid container justifyContent="flex-end">
           <Grid item>
-            <Link href="#" variant="body2">
+            <Link href={Routes.SIGN_IN} variant="body2">
               Already have an account? Sign in
             </Link>
           </Grid>

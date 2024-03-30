@@ -8,6 +8,7 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
+import { Routes } from "../utils/routes";
 
 const Login = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -69,12 +70,12 @@ const Login = () => {
         </Button>
         <Grid container>
           <Grid item xs>
-            <Link href="#" variant="body2">
+            <Link href={Routes.FORGOTTEN_PASSWORD} variant="body2">
               Forgot password?
             </Link>
           </Grid>
           <Grid item>
-            <Link href="#" variant="body2">
+            <Link href={Routes.SIGN_UP} variant="body2">
               {"Don't have an account? Sign Up"}
             </Link>
           </Grid>
