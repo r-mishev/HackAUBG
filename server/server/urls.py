@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('',  IndexPageView.as_view(), name='index')
+    path('data/', include('be.urls'))
 ]
