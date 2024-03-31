@@ -1,11 +1,4 @@
-body{
-    margin:0;
-    overflow-x:hidden;
-    }
-    
     .footer{
-        position: absolute;
-    bottom: 0;
     width: 100vw;
     background:#2d2767;
     padding:30px 0px;

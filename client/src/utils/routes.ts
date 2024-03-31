@@ -1,6 +1,6 @@
 enum Routes {
   HOME = "/",
-  ANALYZE = "/analyse",
+  ANALYZE = "/analyze",
   SIGN_UP = "/register",
   SIGN_IN = "/login",
   FORGOTTEN_PASSWORD = "/forgotten-password",

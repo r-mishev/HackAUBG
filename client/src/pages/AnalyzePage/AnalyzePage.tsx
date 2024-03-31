@@ -12,6 +12,7 @@ import cssLayoutStyles from "../../Global/Styles/layout";
 import cssSpacingStyles from "../../Global/Styles/spacing";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { css, styled } from "@mui/material/styles";
+import Footer from "../footer/Footer";
 import { useState } from "react";
 import axios from "axios";
 import * as XLSX from "xlsx";
@@ -523,6 +524,7 @@ const AnalyzePage = () => {
           </Button>
         </Box>
       </Box>
+      <Footer></Footer>
     </>
   );
 };

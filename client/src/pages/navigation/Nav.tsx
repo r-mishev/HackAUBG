@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import "./nav.css";
 import { Routes } from "../../utils/routes";
+import Footer from "../footer/Footer";
 
 function Nav() {
   const navigate = useNavigate();
@@ -15,8 +16,8 @@ function Nav() {
         <p className="nav-logo-text">Tiny Heart</p>
       </a>
       <div className="nav-side">
-        <a onClick={() => navigate(Routes.ANALYZE)}> Analyse</a>
-        <a onClick={() => navigate(Routes.SIGN_IN)}> Login</a>
+        <a onClick={() => navigate(Routes.ANALYZE)}> Analyze</a>
+        {/* <a onClick={() => navigate(Routes.SIGN_IN)}> Login</a> */}
       </div>
     </div>
   );
