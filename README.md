@@ -47,7 +47,4 @@ cd ./.vnv/bin/activate
 poetry run start 
 ```
 # Credits
-Radko Mishev
-Mariya Kirilova
-Teodor Kovachev
-Anna Kukova
+Radko Mishev, Maria Kirilova, Teodor Kovachev, Anna Kukova
