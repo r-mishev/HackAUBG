@@ -13,7 +13,9 @@ import cssSpacingStyles from "../../Global/Styles/spacing";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { css, styled } from "@mui/material/styles";
 import { useState } from "react";
+import axios from "axios";
 import * as XLSX from "xlsx";
+import useFirebase from "../../utils/useFirebase";
 
 const cssStyles = () => ({
   dataContainer: css({
@@ -94,8 +96,9 @@ const AnalyzePage = () => {
     ...cssSpacingStyles(theme),
     ...cssLayoutStyles,
   };
+  const imgUrl = useFirebase();
 
-  const handleFileUpload = (e:any) => {
+  const handleFileUpload = (e: any) => {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onload = (evt) => {
@@ -134,6 +137,18 @@ const AnalyzePage = () => {
     };
     reader.readAsBinaryString(file);
   };
+
+  const submitData=()=>{
+    axios.post('/data',formData)
+    .then(function (response){
+      console.log(response)
+      return 0;
+    })
+    .catch(function(error){
+      console.log(error);
+      return 0;
+    });
+};
 
   return (
     <>
@@ -500,7 +515,7 @@ const AnalyzePage = () => {
           >
             Clear data
           </Button>
-          <Button variant="contained">Continue</Button>
+          <Button variant="contained" onClick={submitData}>Continue</Button>
         </Box>
       </Box>
     </>

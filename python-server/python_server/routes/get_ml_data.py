@@ -1,9 +1,5 @@
-import pandas as pd
 from flask import Blueprint, request
-from python_server.mlmodel.Heatmap import heatmap
-from python_server.mlmodel.Boxplot import boxplot
-from python_server.mlmodel.Boxplot_Xdata import boxplot_xdata
-from joblib import load
+from python_server.mlmodel.model import get_corrmat
 
 ml_data_bp = Blueprint("ml_data", __name__)
 
