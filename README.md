@@ -35,7 +35,7 @@ Python is the primary programming language for machine learning in TinyHeart due
 Libraries such as numpy, matplotlib, and pandas are indispensable for data manipulation, analysis, and visualization in Python. They provide essential functionalities for preprocessing data, exploring patterns, and generating insights, enabling healthcare professionals to make informed decisions based on fetal health data.
 RandomForestClassifier was chosen as the machine learning algorithm for TinyHeart's predictive modeling tasks due to its simplicity, interpretability, and ability to handle both numerical and categorical features. It effectively analyzes fetal health vitals and predicts developmental outcomes based on input data, empowering healthcare professionals to take appropriate actions to ensure optimal outcomes for mother and baby.
 
-![RandomForestDiagram](https://www.google.com/url?sa=i&url=https%3A%2F%2Fmedium.com%2F%40mrmaster907%2Fintroduction-random-forest-classification-by-example-6983d95c7b91&psig=AOvVaw3m47y8ixwc_cjOfWQfnuJJ&ust=1711957979638000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPimosyCnoUDFQAAAAAdAAAAABAE)
+![RandomForestDiagram](https://github.com/r-mishev/HackAUBG/blob/master/graph.png)
 
 # How to install and run the project?
 ```
