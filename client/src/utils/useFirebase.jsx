@@ -16,8 +16,6 @@ const useFirebase = () => {
     });
   }, []);
 
-  console.log(imgUrl);
-
   return imgUrl;
 };
 
