@@ -33,6 +33,18 @@ Firebase serves as the Content Delivery Network (CDN) for TinyHeart, offering a 
 
 Python is the primary programming language for machine learning in TinyHeart due to its simplicity, readability, and extensive support for data science libraries and tools. Its versatility and ease of use make it well-suited for implementing machine learning algorithms and analyzing fetal health vitals effectively.
 Libraries such as numpy, matplotlib, and pandas are indispensable for data manipulation, analysis, and visualization in Python. They provide essential functionalities for preprocessing data, exploring patterns, and generating insights, enabling healthcare professionals to make informed decisions based on fetal health data.
-ecisionTreeRegressor was chosen as the machine learning algorithm for TinyHeart's predictive modeling tasks due to its simplicity, interpretability, and ability to handle both numerical and categorical features. It effectively analyzes fetal health vitals and predicts developmental outcomes based on input data, empowering healthcare professionals to take appropriate actions to ensure optimal outcomes for mother and baby.
- 
-## 
+RandomForestClassifier was chosen as the machine learning algorithm for TinyHeart's predictive modeling tasks due to its simplicity, interpretability, and ability to handle both numerical and categorical features. It effectively analyzes fetal health vitals and predicts developmental outcomes based on input data, empowering healthcare professionals to take appropriate actions to ensure optimal outcomes for mother and baby.
+
+![RandomForestDiagram](https://github.com/r-mishev/HackAUBG/blob/master/graph.png)
+
+# How to install and run the project?
+```
+cd client
+npm install
+npm run dev
+
+cd ./.vnv/bin/activate
+poetry run start 
+```
+# Credits
+Radko Mishev, Maria Kirilova, Teodor Kovachev, Anna Kukova
