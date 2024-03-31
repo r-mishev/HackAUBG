@@ -15,7 +15,7 @@ const Login = () => {
   return (
     <div className="container">
     <div className="center">
-        <h1>Login</h1>
+        <h1>Register</h1>
         <form onSubmit={handleSubmit}>
             <div className="txt_field">
                 <input type="text" name="email" required></input>
