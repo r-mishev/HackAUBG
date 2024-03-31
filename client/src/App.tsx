@@ -24,7 +24,7 @@ const App = () => {
 
   return (
     <Box component="main">
-      <RouterProvider router={appRouter} />
+      <RouterProvider router={appRouter}/>
     </Box>
   );
 };

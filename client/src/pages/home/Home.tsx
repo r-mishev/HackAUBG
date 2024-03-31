@@ -2,6 +2,7 @@ import './home.css'
 
 function Home() {
   return (
+    <>
     <div className='landing-page'>
     <div className='home'>
     <div className='home-side-left'>
@@ -23,6 +24,7 @@ function Home() {
         <p className='data-list'>Full list of data points: baseline value, accelerations, fetal movement, uterine contractions, light decelerations, severe decelerations, prolongued decelerations, abnormal short term variability, mean value of short term variability, percentage of time with abnormal long term variability, mean value of long term variability, histogram width, histogram min, histogram max, histogram number of peaks, histogram number of zeroes, histogram mode, histogram mean, histogram median, histogram variance, histogram tendency, fetal health</p>
     </div>
     </div>
+    </>
   );
 }
 

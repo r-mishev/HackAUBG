@@ -6,6 +6,7 @@ import Home from "../../pages/home/Home";
 import Register from "../../authPages/Register";
 import Login from "../../authPages/Login";
 import AuthLayout from "../AuthLayout";
+import Footer from "../../pages/footer/Footer";
 
 export default createBrowserRouter([
   {
@@ -29,6 +30,10 @@ export default createBrowserRouter([
         element: <Login />,
       },
       {
+        path: '/footer',
+        element: <Footer/>
+      },
+      {
         path: "/*",
         element: (
           <Box style={{ padding: 20 }}>
@@ -36,6 +41,7 @@ export default createBrowserRouter([
           </Box>
         ),
       },
+
     ],
   },
 ]);
