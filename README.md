@@ -33,6 +33,21 @@ Firebase serves as the Content Delivery Network (CDN) for TinyHeart, offering a 
 
 Python is the primary programming language for machine learning in TinyHeart due to its simplicity, readability, and extensive support for data science libraries and tools. Its versatility and ease of use make it well-suited for implementing machine learning algorithms and analyzing fetal health vitals effectively.
 Libraries such as numpy, matplotlib, and pandas are indispensable for data manipulation, analysis, and visualization in Python. They provide essential functionalities for preprocessing data, exploring patterns, and generating insights, enabling healthcare professionals to make informed decisions based on fetal health data.
-ecisionTreeRegressor was chosen as the machine learning algorithm for TinyHeart's predictive modeling tasks due to its simplicity, interpretability, and ability to handle both numerical and categorical features. It effectively analyzes fetal health vitals and predicts developmental outcomes based on input data, empowering healthcare professionals to take appropriate actions to ensure optimal outcomes for mother and baby.
- 
-## 
+RandomForestClassifier was chosen as the machine learning algorithm for TinyHeart's predictive modeling tasks due to its simplicity, interpretability, and ability to handle both numerical and categorical features. It effectively analyzes fetal health vitals and predicts developmental outcomes based on input data, empowering healthcare professionals to take appropriate actions to ensure optimal outcomes for mother and baby.
+
+![RandomForestDiagram](https://www.google.com/url?sa=i&url=https%3A%2F%2Fmedium.com%2F%40mrmaster907%2Fintroduction-random-forest-classification-by-example-6983d95c7b91&psig=AOvVaw3m47y8ixwc_cjOfWQfnuJJ&ust=1711957979638000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPimosyCnoUDFQAAAAAdAAAAABAE)
+
+# How to install and run the project?
+```
+cd client
+npm install
+npm run dev
+
+cd ./.vnv/bin/activate
+poetry run start 
+```
+# Credits
+Radko Mishev
+Mariya Kirilova
+Teodor Kovachev
+Anna Kukova
