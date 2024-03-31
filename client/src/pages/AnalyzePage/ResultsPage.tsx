@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@mui/material";
+import {Card, CardContent, Typography} from "@mui/material";
 import useFirebase from "../../utils/useFirebase";
 
 const ResultsPage = () => {
@@ -6,7 +6,8 @@ const ResultsPage = () => {
   return (
     <Card>
       <CardContent>
-          {imgUrl.map((item, index) => (
+          <Typography variant="h2">{localStorage.getItem("statusCode")}</Typography>
+          {imgUrl.slice(0, 3).map((item, index) => (
               <img src={item} key={index} alt="images" loading="lazy" />
           ))}
       </CardContent>

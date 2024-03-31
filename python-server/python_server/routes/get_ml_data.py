@@ -22,5 +22,4 @@ def get_data():
     storage.child("boxplot.png").put("boxplot.png")
     storage.child("heatmap.png").put("heatmap.png")
     storage.child("boxplot_xdata.png").put("boxplot_xdata.png")
-    return m4
-
+    return [int(value) for value in m4]

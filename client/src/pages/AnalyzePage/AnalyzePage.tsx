@@ -144,6 +144,7 @@ const AnalyzePage = () => {
       .post("http://127.0.0.1:8080/api/v1/data", formData)
       .then(function (response) {
         if (response.status === 200) {
+          localStorage.setItem("statusCode", response.data)
           navigate(Routes.RESULTS);
         }
       })
