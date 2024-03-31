@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from flask import send_file
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler
@@ -72,4 +73,6 @@ def boxplot_xdata(baseline_value, accelerations, fetal_movement, uterine_contrac
     sns.boxenplot(data=X, palette=shades)
     plt.xticks(rotation=90)
     sns.pointplot(input_dict)
-    return plt
+    plt.savefig('boxplot_xdata.png')  # Save the boxplot as an image
+    plt.close()  # Close the plot to free up memory
+    return

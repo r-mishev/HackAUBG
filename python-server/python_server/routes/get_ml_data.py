@@ -1,8 +1,19 @@
-from flask import Blueprint
-from python_server.mlmodel.model import get_corrmat
+import pandas as pd
+from flask import Blueprint, request
+from python_server.mlmodel.Heatmap import heatmap
+from python_server.mlmodel.Boxplot import boxplot
+from python_server.mlmodel.Boxplot_Xdata import boxplot_xdata
+from joblib import load
 
 ml_data_bp = Blueprint("ml_data", __name__)
 
 @ml_data_bp.get("/data")
 def get_data():
-    return get_corrmat()
+    m1 = heatmap()
+    m2 = boxplot()
+    # m3 = boxplot_xdata(*request)
+    storage = load('storage.joblib')
+    storage.child("boxplot.png").put("boxplot.png")
+    storage.child("heatmap.png").put("heatmap.png")
+    # storage.child(".boxplot_xdata.png").put("boxplot_xdata.png")
+    return "OK"

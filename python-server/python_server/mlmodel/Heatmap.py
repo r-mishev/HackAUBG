@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from flask import send_file
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler
@@ -33,7 +34,7 @@ def heatmap():
 
     sns.heatmap(corrmat, annot=True, cmap=cmap, center=0)
 
-    # plt.show()
-
-    return corrmat.to_dict('list')
+    plt.savefig('heatmap.png')
+    plt.close()  # Close the plot to free up memory
+    return
 

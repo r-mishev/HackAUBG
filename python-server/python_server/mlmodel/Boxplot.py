@@ -6,6 +6,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from flask import jsonify, send_file
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing
 from sklearn.preprocessing import StandardScaler
@@ -21,10 +22,13 @@ from sklearn.metrics import precision_score, recall_score, confusion_matrix, cla
 from sklearn import metrics
 from sklearn.metrics import roc_curve, auc, roc_auc_score
 np.random.seed(0)
+import os
+script_dir = os.path.dirname(__file__)
+os.chdir(script_dir)
 
 
 def boxplot():
-    data = pd.read_csv("fetal_health.csv")
+    data = pd.read_csv('fetal_health.csv')
     data.head()
 
     corrmat = data.corr()
@@ -44,6 +48,8 @@ def boxplot():
     X_df = pd.DataFrame(X_df, columns=col_names)
 
     plt.figure(figsize=(20, 10))
-    sns.boxenplot(data=X, palette=shades)
+    sns.boxenplot(data=X_df, palette=shades)
     plt.xticks(rotation=90)
-    return plt
+    plt.savefig('boxplot.png')  # Save the boxplot as an image
+    plt.close()  # Close the plot to free up memory
+    return

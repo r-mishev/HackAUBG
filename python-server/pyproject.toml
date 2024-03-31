@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Maria Kirilova <mariakirilova2004@gmail.com>"]
 readme = "README.md"
-#include = ["python_server/mlmodel/fetal_health.csv"]
+include = ["python_server/fetal_health.csv"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
