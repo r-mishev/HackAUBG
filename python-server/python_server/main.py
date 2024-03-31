@@ -17,4 +17,4 @@ def create_app() -> Flask:
 app = create_app()
 
 def start() -> None:
-    app.run(host="0.0.0.0", port=6969)
+    app.run(host="0.0.0.0", port=8080)
