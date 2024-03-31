@@ -15,6 +15,7 @@ import { css, styled } from "@mui/material/styles";
 import { useState } from "react";
 import axios from "axios";
 import * as XLSX from "xlsx";
+import useFirebase from "../../utils/useFirebase";
 
 const cssStyles = () => ({
   dataContainer: css({
@@ -95,8 +96,9 @@ const AnalyzePage = () => {
     ...cssSpacingStyles(theme),
     ...cssLayoutStyles,
   };
+  const imgUrl = useFirebase();
 
-  const handleFileUpload = (e:any) => {
+  const handleFileUpload = (e: any) => {
     const file = e.target.files[0];
     const reader = new FileReader();
     reader.onload = (evt) => {
