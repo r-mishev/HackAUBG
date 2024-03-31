@@ -42,51 +42,51 @@ const VisuallyHiddenInput = styled("input")({
 });
 
 interface FormDataType {
-  baselineValue: string;
+  baseline_value: string;
   accelerations: string;
-  fetalMovement: string;
-  uterineContractions: string;
-  lightDecelerations: string;
-  severeDecelerations: string;
-  prolonguedDecelerations: string;
-  abnormalShortTermVariability: string;
-  meanValueOfShortTermVariability: string;
-  percentageOfTimeWithAbnormalLongTermVariability: string;
-  meanValueOfLongTermVariability: string;
-  histogramWidth: string;
-  histogramMin: string;
-  histogramMax: string;
-  histogramNumberOfPeaks: string;
-  histogramNumberOfZeroes: string;
-  histogramMode: string;
-  histogramMean: string;
-  histogramMedian: string;
-  histogramVariance: string;
-  histogramTendency: string;
+  fetal_movement: string;
+  uterine_contractions: string;
+  light_decelerations: string;
+  severe_decelerations: string;
+  prolongued_decelerations: string;
+  abnormal_short_term_variability: string;
+  mean_value_of_short_term_variability: string;
+  percentage_of_time_with_abnormal_long_term_variability: string;
+  mean_value_of_long_term_variability: string;
+  histogram_width: string;
+  histogram_min: string;
+  histogram_max: string;
+  histogram_number_of_peaks: string;
+  histogram_number_of_zeroes: string;
+  histogram_mode: string;
+  histogram_mean: string;
+  histogram_median: string;
+  histogram_variance: string;
+  histogram_tendency: string;
 }
 
 const initialFormData: FormDataType = {
-  baselineValue: "",
+  baseline_value: "",
   accelerations: "",
-  fetalMovement: "",
-  uterineContractions: "",
-  lightDecelerations: "",
-  severeDecelerations: "",
-  prolonguedDecelerations: "",
-  abnormalShortTermVariability: "",
-  meanValueOfShortTermVariability: "",
-  percentageOfTimeWithAbnormalLongTermVariability: "",
-  meanValueOfLongTermVariability: "",
-  histogramWidth: "",
-  histogramMin: "",
-  histogramMax: "",
-  histogramNumberOfPeaks: "",
-  histogramNumberOfZeroes: "",
-  histogramMode: "",
-  histogramMean: "",
-  histogramMedian: "",
-  histogramVariance: "",
-  histogramTendency: "",
+  fetal_movement: "",
+  uterine_contractions: "",
+  light_decelerations: "",
+  severe_decelerations: "",
+  prolongued_decelerations: "",
+  abnormal_short_term_variability: "",
+  mean_value_of_short_term_variability: "",
+  percentage_of_time_with_abnormal_long_term_variability: "",
+  mean_value_of_long_term_variability: "",
+  histogram_width: "",
+  histogram_min: "",
+  histogram_max: "",
+  histogram_number_of_peaks: "",
+  histogram_number_of_zeroes: "",
+  histogram_mode: "",
+  histogram_mean: "",
+  histogram_median: "",
+  histogram_variance: "",
+  histogram_tendency: "",
 };
 
 const AnalyzePage = () => {
@@ -110,28 +110,28 @@ const AnalyzePage = () => {
       const data: Array<number[]> = XLSX.utils.sheet_to_json(ws, { header: 1 });
       const firstRow: number[] = data.slice(1)[0];
       const newData = {
-        baselineValue: firstRow[0]?.toString() || "",
+        baseline_value: firstRow[0]?.toString() || "",
         accelerations: firstRow[1]?.toString() || "",
-        fetalMovement: firstRow[2]?.toString() || "",
-        uterineContractions: firstRow[3]?.toString() || "",
-        lightDecelerations: firstRow[4]?.toString() || "",
-        severeDecelerations: firstRow[5]?.toString() || "",
-        prolonguedDecelerations: firstRow[6]?.toString() || "",
-        abnormalShortTermVariability: firstRow[7]?.toString() || "",
-        meanValueOfShortTermVariability: firstRow[8]?.toString() || "",
-        percentageOfTimeWithAbnormalLongTermVariability:
+        fetal_movement: firstRow[2]?.toString() || "",
+        uterine_contractions: firstRow[3]?.toString() || "",
+        light_decelerations: firstRow[4]?.toString() || "",
+        severe_decelerations: firstRow[5]?.toString() || "",
+        prolongued_decelerations: firstRow[6]?.toString() || "",
+        abnormal_short_term_variability: firstRow[7]?.toString() || "",
+        mean_value_of_short_term_variability: firstRow[8]?.toString() || "",
+        percentage_of_time_with_abnormal_long_term_variability:
           firstRow[9]?.toString() || "",
-        meanValueOfLongTermVariability: firstRow[10]?.toString() || "",
-        histogramWidth: firstRow[11]?.toString() || "",
-        histogramMin: firstRow[12]?.toString() || "",
-        histogramMax: firstRow[13]?.toString() || "",
-        histogramNumberOfPeaks: firstRow[14]?.toString() || "",
-        histogramNumberOfZeroes: firstRow[15]?.toString() || "",
-        histogramMode: firstRow[16]?.toString() || "",
-        histogramMean: firstRow[17]?.toString() || "",
-        histogramMedian: firstRow[18]?.toString() || "",
-        histogramVariance: firstRow[19]?.toString() || "",
-        histogramTendency: firstRow[20]?.toString() || "",
+        mean_value_of_long_term_variability: firstRow[10]?.toString() || "",
+        histogram_width: firstRow[11]?.toString() || "",
+        histogram_min: firstRow[12]?.toString() || "",
+        histogram_max: firstRow[13]?.toString() || "",
+        histogram_number_of_peaks: firstRow[14]?.toString() || "",
+        histogram_number_of_zeroes: firstRow[15]?.toString() || "",
+        histogram_mode: firstRow[16]?.toString() || "",
+        histogram_mean: firstRow[17]?.toString() || "",
+        histogram_median: firstRow[18]?.toString() || "",
+        histogram_variance: firstRow[19]?.toString() || "",
+        histogram_tendency: firstRow[20]?.toString() || "",
       };
 
       setFormData(newData);
@@ -186,11 +186,11 @@ const AnalyzePage = () => {
                       </InputLabel>
                       <Input
                         type="number"
-                        value={formData.baselineValue}
+                        value={formData.baseline_value}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            baselineValue: e.target.value,
+                            baseline_value: e.target.value,
                           })
                         }
                       />
@@ -216,11 +216,11 @@ const AnalyzePage = () => {
                       </InputLabel>
                       <Input
                         type="number"
-                        value={formData.fetalMovement}
+                        value={formData.fetal_movement}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            fetalMovement: e.target.value,
+                            fetal_movement: e.target.value,
                           })
                         }
                       />
@@ -231,11 +231,11 @@ const AnalyzePage = () => {
                       </InputLabel>
                       <Input
                         type="number"
-                        value={formData.uterineContractions}
+                        value={formData.uterine_contractions}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            uterineContractions: e.target.value,
+                            uterine_contractions: e.target.value,
                           })
                         }
                       />
@@ -246,11 +246,11 @@ const AnalyzePage = () => {
                       </InputLabel>
                       <Input
                         type="number"
-                        value={formData.lightDecelerations}
+                        value={formData.light_decelerations}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            lightDecelerations: e.target.value,
+                            light_decelerations: e.target.value,
                           })
                         }
                       />
@@ -261,11 +261,11 @@ const AnalyzePage = () => {
                       </InputLabel>
                       <Input
                         type="number"
-                        value={formData.severeDecelerations}
+                        value={formData.severe_decelerations}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            severeDecelerations: e.target.value,
+                            severe_decelerations: e.target.value,
                           })
                         }
                       />
@@ -276,11 +276,11 @@ const AnalyzePage = () => {
                       </InputLabel>
                       <Input
                         type="number"
-                        value={formData.prolonguedDecelerations}
+                        value={formData.prolongued_decelerations}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            prolonguedDecelerations: e.target.value,
+                            prolongued_decelerations: e.target.value,
                           })
                         }
                       />
@@ -291,11 +291,11 @@ const AnalyzePage = () => {
                       </InputLabel>
                       <Input
                         type="number"
-                        value={formData.abnormalShortTermVariability}
+                        value={formData.abnormal_short_term_variability}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            abnormalShortTermVariability: e.target.value,
+                            abnormal_short_term_variability: e.target.value,
                           })
                         }
                       />
@@ -306,11 +306,11 @@ const AnalyzePage = () => {
                       </InputLabel>
                       <Input
                         type="number"
-                        value={formData.meanValueOfShortTermVariability}
+                        value={formData.mean_value_of_short_term_variability}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            meanValueOfShortTermVariability: e.target.value,
+                            mean_value_of_short_term_variability: e.target.value,
                           })
                         }
                       />
@@ -322,13 +322,13 @@ const AnalyzePage = () => {
                       <Input
                         type="number"
                         value={
-                          formData.percentageOfTimeWithAbnormalLongTermVariability ||
+                          formData.percentage_of_time_with_abnormal_long_term_variability ||
                           ""
                         }
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            percentageOfTimeWithAbnormalLongTermVariability:
+                            percentage_of_time_with_abnormal_long_term_variability:
                               e.target.value,
                           })
                         }
@@ -340,11 +340,11 @@ const AnalyzePage = () => {
                       </InputLabel>
                       <Input
                         type="number"
-                        value={formData.meanValueOfLongTermVariability}
+                        value={formData.mean_value_of_long_term_variability}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            meanValueOfLongTermVariability: e.target.value,
+                            mean_value_of_long_term_variability: e.target.value,
                           })
                         }
                       />
@@ -360,11 +360,11 @@ const AnalyzePage = () => {
                       <InputLabel sx={{ textAlign: "end" }}>Width</InputLabel>
                       <Input
                         type="number"
-                        value={formData.histogramWidth}
+                        value={formData.histogram_width}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            histogramWidth: e.target.value,
+                            histogram_width: e.target.value,
                           })
                         }
                       />
@@ -375,11 +375,11 @@ const AnalyzePage = () => {
                       </InputLabel>
                       <Input
                         type="number"
-                        value={formData.histogramMin}
+                        value={formData.histogram_min}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            histogramMin: e.target.value,
+                            histogram_min: e.target.value,
                           })
                         }
                       />
@@ -390,11 +390,11 @@ const AnalyzePage = () => {
                       </InputLabel>
                       <Input
                         type="number"
-                        value={formData.histogramMax}
+                        value={formData.histogram_max}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            histogramMax: e.target.value,
+                            histogram_max: e.target.value,
                           })
                         }
                       />
@@ -405,11 +405,11 @@ const AnalyzePage = () => {
                       </InputLabel>
                       <Input
                         type="number"
-                        value={formData.histogramNumberOfPeaks}
+                        value={formData.histogram_number_of_peaks}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            histogramNumberOfPeaks: e.target.value,
+                            histogram_number_of_peaks: e.target.value,
                           })
                         }
                       />
@@ -420,11 +420,11 @@ const AnalyzePage = () => {
                       </InputLabel>
                       <Input
                         type="number"
-                        value={formData.histogramNumberOfZeroes}
+                        value={formData.histogram_number_of_zeroes}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            histogramNumberOfZeroes: e.target.value,
+                            histogram_number_of_zeroes: e.target.value,
                           })
                         }
                       />
@@ -433,11 +433,11 @@ const AnalyzePage = () => {
                       <InputLabel sx={{ textAlign: "end" }}>Mode</InputLabel>
                       <Input
                         type="number"
-                        value={formData.histogramMode}
+                        value={formData.histogram_mode}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            histogramMode: e.target.value,
+                            histogram_mode: e.target.value,
                           })
                         }
                       />
@@ -446,11 +446,11 @@ const AnalyzePage = () => {
                       <InputLabel sx={{ textAlign: "end" }}>Mean</InputLabel>
                       <Input
                         type="number"
-                        value={formData.histogramMean}
+                        value={formData.histogram_mean}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            histogramMean: e.target.value,
+                            histogram_mean: e.target.value,
                           })
                         }
                       />
@@ -459,11 +459,11 @@ const AnalyzePage = () => {
                       <InputLabel sx={{ textAlign: "end" }}>Median</InputLabel>
                       <Input
                         type="number"
-                        value={formData.histogramMedian}
+                        value={formData.histogram_median}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            histogramMedian: e.target.value,
+                            histogram_median: e.target.value,
                           })
                         }
                       />
@@ -474,11 +474,11 @@ const AnalyzePage = () => {
                       </InputLabel>
                       <Input
                         type="number"
-                        value={formData.histogramVariance}
+                        value={formData.histogram_variance}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            histogramVariance: e.target.value,
+                            histogram_variance: e.target.value,
                           })
                         }
                       />
@@ -489,11 +489,11 @@ const AnalyzePage = () => {
                       </InputLabel>
                       <Input
                         type="number"
-                        value={formData.histogramTendency}
+                        value={formData.histogram_tendency}
                         onChange={(e) =>
                           setFormData({
                             ...formData,
-                            histogramTendency: e.target.value,
+                            histogram_tendency: e.target.value,
                           })
                         }
                       />
