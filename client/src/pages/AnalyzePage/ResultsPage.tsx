@@ -1,4 +1,4 @@
-import { Card, CardContent, ImageList, ImageListItem } from "@mui/material";
+import { Card, CardContent } from "@mui/material";
 import useFirebase from "../../utils/useFirebase";
 
 const ResultsPage = () => {
@@ -6,13 +6,9 @@ const ResultsPage = () => {
   return (
     <Card>
       <CardContent>
-        <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={250}>
           {imgUrl.map((item, index) => (
-            <ImageListItem key={index}>
-              <img src={item} loading="lazy" />
-            </ImageListItem>
+              <img src={item} key={index} alt="images" loading="lazy" />
           ))}
-        </ImageList>
       </CardContent>
     </Card>
   );

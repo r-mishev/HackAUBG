@@ -15,7 +15,8 @@ import { css, styled } from "@mui/material/styles";
 import { useState } from "react";
 import axios from "axios";
 import * as XLSX from "xlsx";
-import ResultsPage from "./ResultsPage";
+import {useNavigate} from "react-router-dom";
+import {Routes} from "../../utils/routes";
 
 const cssStyles = () => ({
   dataContainer: css({
@@ -96,6 +97,7 @@ const AnalyzePage = () => {
     ...cssSpacingStyles(theme),
     ...cssLayoutStyles,
   };
+  const navigate = useNavigate();
 
   const handleFileUpload = (e: any) => {
     const file = e.target.files[0];
@@ -139,9 +141,11 @@ const AnalyzePage = () => {
 
   const submitData = () => {
     axios
-      .post("/data", formData)
+      .post("http://127.0.0.1:8080/api/v1/data", formData)
       .then(function (response) {
-        console.log(response);
+        if (response.status === 200) {
+          navigate(Routes.RESULTS);
+        }
       })
       .catch(function (error) {
         console.log(error);

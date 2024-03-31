@@ -7,6 +7,7 @@ import Register from "../../authPages/Register";
 import Login from "../../authPages/Login";
 import AuthLayout from "../AuthLayout";
 import Footer from "../../pages/footer/Footer";
+import ResultsPage from "../../pages/AnalyzePage/ResultsPage";
 
 export default createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export default createBrowserRouter([
       {
         path: '/footer',
         element: <Footer/>
+      },
+      {
+        path: Routes.RESULTS,
+        element: <ResultsPage />
       },
       {
         path: "/*",
